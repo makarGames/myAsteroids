@@ -2,16 +2,21 @@ using UnityEngine;
 
 public class Ship : MonoBehaviour
 {
-    [SerializeField] [Range(0f, 10f)] private float _movingSpeed = 1f;
-    [SerializeField] [Range(0f, 10f)] private float _turnSpeed = 1f;
+    [SerializeField, Range(0f, 10f)] private float _movingSpeed = 1f;
+    [SerializeField, Range(0f, 10f)] private float _turnSpeed = 1f;
 
     private bool _moving;
     private float _turnDirection;
 
     private Rigidbody2D _rigidbody;
 
+    public static Ship S;
+
     private void Awake()
     {
+        if (S == null)
+            S = this;
+
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
