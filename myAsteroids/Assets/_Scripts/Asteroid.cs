@@ -51,6 +51,6 @@ public class Asteroid : MonoBehaviour
 
         GameObject little = Instantiate(_asteroidPrefab, position, _transform.rotation);
         little.transform.localScale = _transform.localScale * 0.5f;
-        little.GetComponent<Asteroid>().SetTrajectory(Random.insideUnitCircle.normalized);
+        little.GetComponent<Asteroid>().SetTrajectory(Random.insideUnitCircle.normalized * _speed * 1.5f);
     }
 }
