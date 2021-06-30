@@ -7,6 +7,8 @@ public class EndGame : MonoBehaviour
 {
     [SerializeField] private GameObject _deathPanel;
     [SerializeField] private Text _endScoreText;
+    [SerializeField] private Text _bestScoreText;
+
 
     private int _endScore;
     private int endScore
@@ -19,16 +21,30 @@ public class EndGame : MonoBehaviour
         }
     }
 
+    private int _bestScore
+    {
+        get => PlayerPrefs.GetInt("bestScore", 0);
+        set
+        {
+            PlayerPrefs.SetInt("bestScore", value);
+            _bestScoreText.text = _bestScore.ToString();
+        }
+    }
+
     public static EndGame S;
 
     private void Awake()
     {
         if (S == null)
             S = this;
+
+        _bestScoreText.text = _bestScore.ToString();
+        Cursor.visible = false;
     }
 
     public void Death()
     {
+        Cursor.visible = true;
         _deathPanel.SetActive(true);
         _deathPanel.GetComponent<Animation>().Play();
         StartCoroutine(ScoringPoints());
@@ -38,9 +54,11 @@ public class EndGame : MonoBehaviour
     {
         while (endScore < Score.S.scoreNumber)
         {
-            endScore++;
+            endScore += 10;
             yield return new WaitForFixedUpdate();
         }
+        if (_bestScore < Score.S.scoreNumber)
+            _bestScore = Score.S.scoreNumber;
     }
 
     public void Restart()

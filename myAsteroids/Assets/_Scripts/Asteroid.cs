@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-    /* [SerializeField] private List<Sprite> _sprites = new List<Sprite>();
-    [SerializeField] private SpriteRenderer _spriteRenderer; */
     [SerializeField, Range(0f, 60f)] private float _lifeTime = 12f;
     [SerializeField, Range(0f, 50f)] private float _speed = 10f;
+
+    [SerializeField] private GameObject _asteroidPrefab;
 
     private Rigidbody2D _rigidbody;
     private Transform _transform;
@@ -49,8 +49,8 @@ public class Asteroid : MonoBehaviour
         Vector2 position = _transform.position;
         position += Random.insideUnitCircle * 0.5f;
 
-        Asteroid little = Instantiate(this, position, _transform.rotation);
+        GameObject little = Instantiate(_asteroidPrefab, position, _transform.rotation);
         little.transform.localScale = _transform.localScale * 0.5f;
-        little.SetTrajectory(Random.insideUnitCircle.normalized);
+        little.GetComponent<Asteroid>().SetTrajectory(Random.insideUnitCircle.normalized);
     }
 }

@@ -5,7 +5,8 @@ using UnityEngine;
 public class ChangeVisability : MonoBehaviour
 {
     private List<Visualization> _visualization = new List<Visualization>();
-    public bool vision { get; set; } // true - 2d Visualization, false - 3d Visualization 
+
+    public bool vision { get; private set; } // true - 2d Visualization, false - 3d Visualization 
 
     public static ChangeVisability S;
 

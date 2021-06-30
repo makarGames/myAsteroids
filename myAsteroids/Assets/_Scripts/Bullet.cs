@@ -23,13 +23,4 @@ public class Bullet : MonoBehaviour
     {
         _rigidbody.AddForce(direction * _speed);
     }
-
-    /* private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.GetComponent<Enemy>() || other.gameObject.GetComponent<Asteroid>())
-        {
-            Destroy(other.gameObject);
-            Destroy(gameObject);
-        }
-    } */
 }

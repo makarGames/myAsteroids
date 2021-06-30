@@ -137,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lifeTime: 60
   _speed: 10
+  _asteroidPrefab: {fileID: 8015883910279264638}
 --- !u!50 &8846130239706788297
 Rigidbody2D:
   serializedVersion: 4
@@ -392,7 +393,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1056666096333670, guid: bb867d9572c602e49a543808f769639d, type: 3}
       propertyPath: m_Name
-      value: Asteroid3d
+      value: Asteroid3dBlue
       objectReference: {fileID: 0}
     - target: {fileID: 4579553980399578, guid: bb867d9572c602e49a543808f769639d, type: 3}
       propertyPath: m_RootOrder
@@ -452,7 +453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 23523893699283024, guid: bb867d9572c602e49a543808f769639d, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb867d9572c602e49a543808f769639d, type: 3}
@@ -475,7 +476,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1822345149752838, guid: 45b62242ff99b0a48a47f713cd6d1687, type: 3}
       propertyPath: m_Name
-      value: Asteroid3d
+      value: Asteroid3dRed
       objectReference: {fileID: 0}
     - target: {fileID: 4992838361154946, guid: 45b62242ff99b0a48a47f713cd6d1687, type: 3}
       propertyPath: m_RootOrder
